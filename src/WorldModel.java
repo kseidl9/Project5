@@ -13,6 +13,9 @@ final class WorldModel
    private static final String MINER_KEY = "miner";
    private static final String BGND_KEY = "background";
 
+   public static final String BUNNY_KEY = "bunny";
+   public static final String CARROT_KEY = "carrot";
+
    private static final int ORE_REACH = 1;
    private int numRows;
    private int numCols;
@@ -241,6 +244,8 @@ final class WorldModel
                return ParseElement.parseSmith(this, properties, imageStore);
             case VEIN_KEY:
                return ParseElement.parseVein(this, properties, imageStore);
+            case BUNNY_KEY:
+               return ParseElement.parseBunny(this,properties, imageStore);
          }
       }
 

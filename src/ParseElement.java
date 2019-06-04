@@ -4,6 +4,15 @@ public class ParseElement {
     private static final int BGND_ID = 1;
     private static final int BGND_NUM_PROPERTIES = 4;
 
+    private static final int BUNNY_NUM_PROPERTIES = 7;
+    private static final int BUNNY_ANIMATION_PERIOD = 6;
+    private static final int BUNNY_ACTION_PERIOD = 5;
+    private static final int BUNNY_LIMIT = 4;
+    private static final int BUNNY_ROW = 3;
+    private static final int BUNNY_COL = 2;
+    private static final int BUNNY_ID = 1;
+    private static final String BUNNY_KEY = "bunny";
+
     private static final int MINER_ANIMATION_PERIOD = 6;
     private static final int MINER_ACTION_PERIOD = 5;
     private static final int MINER_LIMIT = 4;
@@ -54,6 +63,25 @@ public class ParseElement {
         return properties.length == BGND_NUM_PROPERTIES;
     }
 
+    public static boolean parseBunny(WorldModel world, String[] properties, ImageStore imageStore){
+        if (properties.length == BUNNY_NUM_PROPERTIES)
+        {
+            Point pt = new Point(Integer.parseInt(properties[BUNNY_COL]),
+                    Integer.parseInt(properties[BUNNY_ROW]));
+            Entity entity = new Miner(
+                    properties[BUNNY_ID],
+                    pt,
+                    imageStore.getImageList(BUNNY_KEY),
+                    Integer.parseInt(properties[BUNNY_LIMIT]),
+                    0,
+                    Integer.parseInt(properties[BUNNY_ACTION_PERIOD]),
+                    Integer.parseInt(properties[BUNNY_ANIMATION_PERIOD])
+            );
+            world.tryAddEntity(entity);
+        }
+
+        return properties.length == BUNNY_NUM_PROPERTIES;
+    }
     public static boolean parseMiner(WorldModel world, String[] properties, ImageStore imageStore)
     {
         if (properties.length == MINER_NUM_PROPERTIES)
