@@ -4,10 +4,9 @@ public class ParseElement {
     private static final int BGND_ID = 1;
     private static final int BGND_NUM_PROPERTIES = 4;
 
-    private static final int BUNNY_NUM_PROPERTIES = 7;
+    private static final int BUNNY_NUM_PROPERTIES = 5;
     private static final int BUNNY_ANIMATION_PERIOD = 6;
     private static final int BUNNY_ACTION_PERIOD = 5;
-    private static final int BUNNY_LIMIT = 4;
     private static final int BUNNY_ROW = 3;
     private static final int BUNNY_COL = 2;
     private static final int BUNNY_ID = 1;
@@ -68,16 +67,10 @@ public class ParseElement {
         {
             Point pt = new Point(Integer.parseInt(properties[BUNNY_COL]),
                     Integer.parseInt(properties[BUNNY_ROW]));
-            Entity entity = new Miner(
-                    properties[BUNNY_ID],
-                    pt,
-                    imageStore.getImageList(BUNNY_KEY),
-                    Integer.parseInt(properties[BUNNY_LIMIT]),
-                    0,
+            Entity bun = new Bunny(properties[BUNNY_ID], pt, imageStore.getImageList(BUNNY_KEY),
                     Integer.parseInt(properties[BUNNY_ACTION_PERIOD]),
-                    Integer.parseInt(properties[BUNNY_ANIMATION_PERIOD])
-            );
-            world.tryAddEntity(entity);
+                    Integer.parseInt(properties[BUNNY_ANIMATION_PERIOD]));
+            world.addEntity(bun);
         }
 
         return properties.length == BUNNY_NUM_PROPERTIES;

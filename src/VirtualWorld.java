@@ -35,7 +35,7 @@ public final class VirtualWorld
 
    private static double timeScale = 1.0;
 
-   private boolean clicked = false;
+   //private boolean clicked = false;
    private ImageStore imageStore;
    private WorldModel world;
    private WorldView view;
@@ -108,8 +108,9 @@ public final class VirtualWorld
    }
 
    public void mouseClicked(){
-      clicked = true;
+       Bunny.spawnBunnies(world, new Point(mouseX,mouseY),imageStore);
    }
+
    private static Background createDefaultBackground(ImageStore imageStore)
    {
       return new Background(imageStore.getImageList(DEFAULT_IMAGE_NAME));

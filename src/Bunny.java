@@ -1,22 +1,22 @@
 import processing.core.PImage;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 public class Bunny extends AbstractMobileEntity{
 
-    private int resourceLimit;
-    private int resourceCount;
     private static final String CARROT_KEY = "carrot";
+    private static final String BUNNY_KEY = "bunny";
+
 
 
     public Bunny(String id, Point position,
-                 List<PImage> images, int resourceLimit, int resourceCount,
+                 List<PImage> images,
                  int actionPeriod, int animationPeriod)
     {
-        super(id, position, images, actionPeriod, animationPeriod);
-        this.resourceLimit = resourceLimit;
-        this.resourceCount = resourceCount;    }
+        super(id, position, images, actionPeriod, animationPeriod); }
 
     @Override
     public Point nextPosition(WorldModel world, Point destPos) {
@@ -53,6 +53,22 @@ public class Bunny extends AbstractMobileEntity{
                 nextPeriod);
     }
 
+    public static void spawnBunnies(WorldModel world, Point p, ImageStore imageStore){
+        //spawn bunnies
+        System.out.print("here");
+        Random rand = new Random();
+        System.out.print("rand: " + rand.nextInt(20));
+
+
+        for (int i = 0; i < rand.nextInt(20); i++ ){
+            Point close = new Point(p.x + rand.nextInt(7), p.y + rand.nextInt(7));
+            Bunny bun = new Bunny("bunny",close, imageStore.getImageList(BUNNY_KEY), 6,5 );
+
+            world.addEntity(bun);
+            System.out.print("bun");
+        }
+
+    }
     private boolean moveTo(WorldModel world, Miner target, EventScheduler scheduler)
     {
         if (this.getPosition().adjacent(target.getPosition()))
