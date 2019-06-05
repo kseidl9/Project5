@@ -9,14 +9,20 @@ public class Bunny extends AbstractMobileEntity{
 
     private static final String CARROT_KEY = "carrot";
     private static final String BUNNY_KEY = "bunny";
-
+    //private boolean letThereBeBunnies = false;
 
 
     public Bunny(String id, Point position,
                  List<PImage> images,
                  int actionPeriod, int animationPeriod)
     {
-        super(id, position, images, actionPeriod, animationPeriod); }
+        super(id, position, images, actionPeriod, animationPeriod);
+    }
+
+    /*public void letThereBeBunnies(){
+        letThereBeBunnies = true;
+    }
+    */
 
     @Override
     public Point nextPosition(WorldModel world, Point destPos) {
@@ -44,6 +50,7 @@ public class Bunny extends AbstractMobileEntity{
             if (moveTo(world, (Miner)minerTarget.get(), scheduler))
             {
                 Carrot carrot = new Carrot("carrot", tgtPos, imageStore.getImageList(CARROT_KEY));
+                world.addEntity(carrot);
                 nextPeriod += this.getActionPeriod();
             }
         }
@@ -53,18 +60,20 @@ public class Bunny extends AbstractMobileEntity{
                 nextPeriod);
     }
 
-    public static void spawnBunnies(WorldModel world, Point p, ImageStore imageStore){
+    public static void spawnBunnies(WorldModel world, Point p, ImageStore imageStore, EventScheduler scheduler){
         //spawn bunnies
         System.out.print("here");
         Random rand = new Random();
-        System.out.print("rand: " + rand.nextInt(20));
+        int nbuns = rand.nextInt(20)+2;
+        nbuns = 1;
+        for (int i = 0; i < nbuns; i++ ){
+            //Point close = new Point(p.x + rand.nextInt(7), p.y + rand.nextInt(7));
+            //System.out.println(close);
+            Bunny bun = new Bunny("bunny",p, imageStore.getImageList(BUNNY_KEY), 6,5 );
 
-
-        for (int i = 0; i < rand.nextInt(20); i++ ){
-            Point close = new Point(p.x + rand.nextInt(7), p.y + rand.nextInt(7));
-            Bunny bun = new Bunny("bunny",close, imageStore.getImageList(BUNNY_KEY), 6,5 );
 
             world.addEntity(bun);
+            bun.scheduleActions(scheduler, world, imageStore);
             System.out.print("bun");
         }
 

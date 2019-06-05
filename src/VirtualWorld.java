@@ -107,8 +107,9 @@ public final class VirtualWorld
       }
    }
 
-   public void mouseClicked(){
-       Bunny.spawnBunnies(world, new Point(mouseX,mouseY),imageStore);
+   public void mouseClicked()
+   {
+       Bunny.spawnBunnies(world, screenToTile(new Point(mouseX,mouseY)),imageStore, scheduler);
    }
 
    private static Background createDefaultBackground(ImageStore imageStore)
@@ -173,6 +174,10 @@ public final class VirtualWorld
                break;
          }
       }
+   }
+
+   public static Point screenToTile(Point p) {
+      return new Point (p.x/TILE_HEIGHT, p.y/TILE_WIDTH);
    }
 
    public static void main(String [] args)
