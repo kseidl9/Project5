@@ -1,0 +1,23 @@
+How to trigger the event:
+    Our event can be triggered by clicking on the grid with a mouse.
+
+What should happen when the event is triggered:
+    When the mouse is clicked, a black hole should be created and a bunny should come running out of it.
+
+What the affected entities should do:
+    The miners turn into immobile carrots
+
+what the new entity is and how it should behave:
+    The new entity is a brown bunny, and it should chase the miners and turn them into carrots.
+
+the names of each partner and what each partner was responsible for:
+	Katie:
+	    -setting up parseBunny and fixing VirtualWorld
+	    -making mouse clicked call spawnBunnies
+	    -fixing spawnBunnies and calling EventScheduler
+	    -translating mouse coordinates to grid coordinates
+	    -editing the images
+	Ria:
+	    -creating the black hole when the mouse is clicked
+	    -setting up the Bunny class
+	    -fixing bunny’s moveTo and executeActivity functions to make it remove minerTargets

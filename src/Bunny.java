@@ -58,16 +58,13 @@ public class Bunny extends AbstractMobileEntity{
     }
 
     public static void spawnBunnies(WorldModel world, Point p, ImageStore imageStore, EventScheduler scheduler){
-        //spawn bunnies
-        System.out.print("here");
-        Random rand = new Random();
-        int nbuns = rand.nextInt(20)+2;
-        nbuns = 1;
-        for (int i = 0; i < nbuns; i++ ){
-            //Point close = new Point(p.x + rand.nextInt(7), p.y + rand.nextInt(7));
-            //System.out.println(close);
-            Bunny bun = new Bunny("bunny",p, imageStore.getImageList(BUNNY_KEY), 6,5 );
 
+        Random rand = new Random();
+        int nbuns = rand.nextInt(5)+1;
+        for (int i = 0; i < nbuns; i++ ){
+            Point close = new Point(p.x + rand.nextInt(7), p.y + rand.nextInt(7));
+
+            Bunny bun = new Bunny("bunny",close, imageStore.getImageList(BUNNY_KEY), 6,5 );
 
             world.addEntity(bun);
             bun.scheduleActions(scheduler, world, imageStore);
