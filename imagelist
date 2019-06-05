@@ -2,6 +2,17 @@ blacksmith images/blacksmith.bmp
 bunny images/brownbun.png 252 252 252 0
 
 carrot images/carrot.png
+hole1 images/blackhole_01.png
+hole2 images/blackhole_02.png
+hole3 images/blackhole_03.png
+hole4 images/blackhole_04.png
+hole5 images/blackhole_05.png
+hole6 images/blackhole_06.png
+hole7 images/blackhole_07.png
+hole8 images/blackhole_08.png
+hole9 images/blackhole_09.png
+
+
 blob images/blob1.bmp 255 255 255 0
 blob images/blob2.bmp 255 255 255 0
 blob images/blob3.bmp 255 255 255 0

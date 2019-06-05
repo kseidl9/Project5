@@ -12,10 +12,7 @@ public class Bunny extends AbstractMobileEntity{
     //private boolean letThereBeBunnies = false;
 
 
-    public Bunny(String id, Point position,
-                 List<PImage> images,
-                 int actionPeriod, int animationPeriod)
-    {
+    public Bunny(String id, Point position, List<PImage> images, int actionPeriod, int animationPeriod) {
         super(id, position, images, actionPeriod, animationPeriod);
     }
 

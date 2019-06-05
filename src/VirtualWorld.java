@@ -110,16 +110,18 @@ public final class VirtualWorld
 
    public void mouseClicked()
    {
-      world.setBackground(screenToTile(new Point(mouseX, mouseY)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX + TILE_WIDTH, mouseY)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX, mouseY-TILE_HEIGHT)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX + TILE_WIDTH, mouseY-TILE_HEIGHT )), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX - TILE_WIDTH, mouseY)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX, mouseY + TILE_HEIGHT)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX - TILE_WIDTH, mouseY -TILE_HEIGHT)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX + TILE_WIDTH, mouseY + TILE_HEIGHT)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      world.setBackground(screenToTile(new Point(mouseX- TILE_WIDTH, mouseY + TILE_HEIGHT)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
-      
+
+      world.setBackground(screenToTile(new Point(mouseX - TILE_WIDTH, mouseY -TILE_HEIGHT)), new Background(imageStore.getImageList("hole1")));
+      world.setBackground(screenToTile(new Point(mouseX, mouseY-TILE_HEIGHT)), new Background(imageStore.getImageList("hole2")));
+      world.setBackground(screenToTile(new Point(mouseX + TILE_WIDTH, mouseY-TILE_HEIGHT )), new Background(imageStore.getImageList("hole3")));
+
+      world.setBackground(screenToTile(new Point(mouseX - TILE_WIDTH, mouseY)), new Background(imageStore.getImageList("hole4")));
+      world.setBackground(screenToTile(new Point(mouseX, mouseY)), new Background(imageStore.getImageList("hole5")));
+      world.setBackground(screenToTile(new Point(mouseX + TILE_WIDTH, mouseY)), new Background(imageStore.getImageList("hole6")));
+   world.setBackground(screenToTile(new Point(mouseX- TILE_WIDTH, mouseY + TILE_HEIGHT)), new Background(imageStore.getImageList("hole7")));
+      world.setBackground(screenToTile(new Point(mouseX, mouseY + TILE_HEIGHT)), new Background(imageStore.getImageList("hole8")));
+      world.setBackground(screenToTile(new Point(mouseX + TILE_WIDTH, mouseY + TILE_HEIGHT)), new Background(imageStore.getImageList("hole9")));
+
       Bunny.spawnBunnies(world, screenToTile(new Point(mouseX,mouseY)),imageStore, scheduler);
    }
 
