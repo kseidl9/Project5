@@ -32,6 +32,7 @@ public final class VirtualWorld
    private static final double FAST_SCALE = 0.5;
    private static final double FASTER_SCALE = 0.25;
    private static final double FASTEST_SCALE = 0.10;
+   private static final String BLACKHOLE_KEY = "blackhole";
 
    private static double timeScale = 1.0;
 
@@ -109,7 +110,8 @@ public final class VirtualWorld
 
    public void mouseClicked()
    {
-       Bunny.spawnBunnies(world, screenToTile(new Point(mouseX,mouseY)),imageStore, scheduler);
+      world.setBackground(screenToTile(new Point(mouseX, mouseY)), new Background(imageStore.getImageList(BLACKHOLE_KEY)));
+      Bunny.spawnBunnies(world, screenToTile(new Point(mouseX,mouseY)),imageStore, scheduler);
    }
 
    private static Background createDefaultBackground(ImageStore imageStore)
