@@ -5,7 +5,6 @@ import java.util.List;
 abstract class AbstractMobileEntity extends AbstractAnimatedEntity implements MobileEntity{
 
    private PathingStrategy strategy = new AStarPathingStrategy();
-   //PathingStrategy strategy = new SingleStepPathingStrategy();
    protected AbstractMobileEntity(String id, Point position, List<PImage> images, int actionPeriod, int animationPeriod)
    {
       super(id, position, images, actionPeriod, animationPeriod);
